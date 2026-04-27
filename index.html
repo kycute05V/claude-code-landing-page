@@ -1,1 +1,789 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Master - Giao tiếp tiếng Anh tự tin chỉ sau 8 tuần</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#090A14',
+                        primary: '#DF6B33',
+                        primaryDark: '#C45A25',
+                        card: '#111827',
+                        muted: '#9CA3AF',
+                    },
+                    fontFamily: {
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        body { background-color: #090A14; font-family: 'Inter', sans-serif; }
+        .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #DF6B33, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-primary {
+            background: #DF6B33;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            background: #C45A25;
+            transform: scale(0.95);
+        }
+        .btn-secondary {
+            border: 1px solid #DF6B33;
+            color: #DF6B33;
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(223, 107, 51, 0.1);
+            transform: scale(0.95);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            border-color: #DF6B33;
+            transform: translateY(-4px);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-answer.open {
+            max-height: 200px;
+        }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(223, 107, 51, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(223, 107, 51, 0.6); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #DF6B33;
+            box-shadow: 0 0 0 2px rgba(223, 107, 51, 0.2);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen">
 
+    <!-- ========== 1. NAVIGATION ========== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-bg/80 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <i data-lucide="languages" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="font-heading font-extrabold text-lg tracking-tight">ENGLISH MASTER</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#chuong-trinh" class="text-muted hover:text-white transition-colors text-sm">Lộ Trình</a>
+                    <a href="#danh-cho-ai" class="text-muted hover:text-white transition-colors text-sm">Giới Thiệu</a>
+                    <a href="#hoc-vien" class="text-muted hover:text-white transition-colors text-sm">Học Viên</a>
+                    <a href="#faq" class="text-muted hover:text-white transition-colors text-sm">FAQ</a>
+                </div>
+                <a href="#dang-ky" class="btn-primary px-5 py-2.5 rounded-lg font-heading font-bold text-sm">
+                    Đăng Ký Ngay
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== 2. HERO SECTION ========== -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6">
+                        <i data-lucide="zap" class="w-4 h-4 text-primary"></i>
+                        <span class="text-primary text-sm font-medium">Khóa học thực chiến 2025</span>
+                    </div>
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+                        Giao tiếp <span class="gradient-text">tiếng Anh</span> tự tin chỉ sau 8 tuần
+                    </h1>
+                    <p class="text-muted text-lg mb-8 leading-relaxed max-w-lg">
+                        Khóa học thực chiến giúp bạn nghe - nói tự nhiên, phản xạ nhanh trong công việc và đời sống
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <a href="#dang-ky" class="btn-primary px-7 py-3.5 rounded-xl font-heading font-bold text-base flex items-center gap-2">
+                            Đăng Ký Khóa Học
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#chuong-trinh" class="btn-secondary px-7 py-3.5 rounded-xl font-heading font-bold text-base flex items-center gap-2">
+                            Xem Lộ Trình
+                            <i data-lucide="list" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap gap-6">
+                        <div class="flex items-center gap-2">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="book-open" class="w-5 h-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-lg">16</div>
+                                <div class="text-muted text-xs">buổi học</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="target" class="w-5 h-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-lg">100%</div>
+                                <div class="text-muted text-xs">thực hành</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="zap" class="w-5 h-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-lg">Phản xạ</div>
+                                <div class="text-muted text-xs">tự nhiên</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in hidden md:flex justify-center">
+                    <div class="relative">
+                        <div class="w-80 h-80 bg-gradient-to-br from-primary/20 to-orange-600/10 rounded-full flex items-center justify-center">
+                            <div class="w-64 h-64 bg-gradient-to-br from-primary/30 to-yellow-500/10 rounded-full flex items-center justify-center">
+                                <div class="w-48 h-48 bg-primary/30 rounded-full flex items-center justify-center">
+                                    <i data-lucide="mic-2" class="w-20 h-20 text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-card border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl">
+                            <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-sm">Phản xạ nhanh</div>
+                                <div class="text-muted text-xs">Sau 8 tuần</div>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 -left-8 bg-card border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl">
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="users" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-sm">1000+ học viên</div>
+                                <div class="text-muted text-xs">Đã thành công</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 3. PROBLEM STATEMENT ========== -->
+    <section class="py-16 md:py-24" id="van-de">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 fade-in">
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl mb-4">Bạn đang gặp những vấn đề này?</h2>
+                <p class="text-muted max-w-xl mx-auto">Những rào cản phổ biến khiến bạn chưa thể giao tiếp tiếng Anh thành thạo</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-red-500/10 rounded-xl flex items-center justify-center mb-5">
+                        <i data-lucide="shield-alert" class="w-7 h-7 text-red-400"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-2">Không dám nói vì sợ sai</h3>
+                    <p class="text-muted text-sm leading-relaxed">Tâm lý e ngại khiến bạn né tránh mọi cơ hội giao tiếp tiếng Anh</p>
+                </div>
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-5">
+                        <i data-lucide="brain" class="w-7 h-7 text-yellow-400"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-2">Học nhiều nhưng không phản xạ được</h3>
+                    <p class="text-muted text-sm leading-relaxed">Ngữ pháp nhiều nhưng khi nói lại không nhớ cách diễn đạt</p>
+                </div>
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-5">
+                        <i data-lucide="ear" class="w-7 h-7 text-blue-400"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-2">Nghe người nước ngoài không hiểu</h3>
+                    <p class="text-muted text-sm leading-relaxed">Tốc độ nói và accent khác khiến bạn không theo kịp</p>
+                </div>
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-6 card-hover">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-5">
+                        <i data-lucide="lock-keyhole" class="w-7 h-7 text-purple-400"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-2">Bí từ vựng khi giao tiếp</h3>
+                    <p class="text-muted text-sm leading-relaxed">Từ vựng hạn hẹp khiến cuộc trò chuyện bị gián đoạn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 4. SOLUTION SECTION ========== -->
+    <section class="py-16 md:py-24 bg-card/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-primary"></i>
+                        <span class="text-primary text-sm font-medium">Giải pháp tối ưu</span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl mb-4">Giải pháp cho bạn</h2>
+                    <p class="text-muted text-lg mb-8 leading-relaxed">
+                        Khóa học tập trung vào giao tiếp thực tế, luyện phản xạ và tư duy bằng tiếng Anh thay vì học lý thuyết khô khan
+                    </p>
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="target" class="w-5 h-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold mb-1">Lộ trình rõ ràng từ cơ bản → giao tiếp</h4>
+                                <p class="text-muted text-sm">Bài bản từng bước, phù hợp mọi trình độ</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="mic" class="w-5 h-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold mb-1">Luyện nói mỗi buổi</h4>
+                                <p class="text-muted text-sm">Thực hành liên tục với tình huống thực tế</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="headphones" class="w-5 h-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold mb-1">Nghe thực tế (video, hội thoại)</h4>
+                                <p class="text-muted text-sm">Làm quen với nhiều accent và tốc độ nói</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="book-text" class="w-5 h-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold mb-1">Tài liệu dễ hiểu</h4>
+                                <p class="text-muted text-sm">Ghi chú và bài tập được thiết kế đơn giản, dễ nhớ</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="handshake" class="w-5 h-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold mb-1">Hỗ trợ 1-1 & group học</h4>
+                                <p class="text-muted text-sm">Giảng viên hỗ trợ riêng tư và cùng nhau tiến bộ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in hidden lg:flex justify-center">
+                    <div class="relative">
+                        <div class="w-96 h-96 bg-gradient-to-br from-primary/15 to-yellow-500/5 rounded-3xl border border-primary/10 flex items-center justify-center">
+                            <div class="grid grid-cols-2 gap-4 p-8">
+                                <div class="bg-card/80 border border-white/10 rounded-2xl p-5 text-center">
+                                    <div class="text-3xl mb-2">🎯</div>
+                                    <div class="font-heading font-bold text-sm">Lộ trình</div>
+                                </div>
+                                <div class="bg-card/80 border border-white/10 rounded-2xl p-5 text-center">
+                                    <div class="text-3xl mb-2">🗣️</div>
+                                    <div class="font-heading font-bold text-sm">Luyện nói</div>
+                                </div>
+                                <div class="bg-card/80 border border-white/10 rounded-2xl p-5 text-center">
+                                    <div class="text-3xl mb-2">🎧</div>
+                                    <div class="font-heading font-bold text-sm">Nghe hiểu</div>
+                                </div>
+                                <div class="bg-card/80 border border-white/10 rounded-2xl p-5 text-center">
+                                    <div class="text-3xl mb-2">🤝</div>
+                                    <div class="font-heading font-bold text-sm">Hỗ trợ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 5. TARGET AUDIENCE ========== -->
+    <section class="py-16 md:py-24" id="danh-cho-ai">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 fade-in">
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl mb-4">Khóa học dành cho ai?</h2>
+                <p class="text-muted max-w-xl mx-auto">Phù hợp với mọi người muốn chinh phục giao tiếp tiếng Anh</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-7 text-center card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-2">Sinh viên</h3>
+                    <p class="text-muted text-sm leading-relaxed">Cần tiếng Anh để đi làm, xin việc và phát triển sự nghiệp</p>
+                </div>
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-7 text-center card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="briefcase" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-2">Người đi làm</h3>
+                    <p class="text-muted text-sm leading-relaxed">Muốn tăng thu nhập, thăng tiến nhờ tiếng Anh giao tiếp tốt</p>
+                </div>
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-7 text-center card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="rotate-ccw" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-2">Người mất gốc</h3>
+                    <p class="text-muted text-sm leading-relaxed">Đã quên kiến thức cơ bản, cần xây lại nền tảng từ đầu</p>
+                </div>
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-7 text-center card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-2">Người muốn tự tin</h3>
+                    <p class="text-muted text-sm leading-relaxed">Khao khát giao tiếp tiếng Anh trôi chảy như người bản xứ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 6. COURSE CONTENT ========== -->
+    <section class="py-16 md:py-24 bg-card/30" id="chuong-trinh">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 fade-in">
+                <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6">
+                    <i data-lucide="calendar" class="w-4 h-4 text-primary"></i>
+                    <span class="text-primary text-sm font-medium">8 tuần - 16 buổi</span>
+                </div>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl mb-4">Lộ Trình 8 Tuần</h2>
+                <p class="text-muted max-w-xl mx-auto text-lg">Từ mất gốc → giao tiếp tự nhiên</p>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="relative">
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 hidden sm:block"></div>
+                    <div class="space-y-6">
+                        <div class="fade-in flex gap-6 items-start relative">
+                            <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-lg shadow-primary/20">
+                                <span class="font-heading font-extrabold text-lg">W1</span>
+                            </div>
+                            <div class="bg-card/60 border border-white/5 rounded-2xl p-5 flex-1 card-hover sm:ml-0 -ml-2">
+                                <h3 class="font-heading font-bold text-lg mb-1">Tuần 1: Phát âm chuẩn & nền tảng</h3>
+                                <p class="text-muted text-sm">Nắm vững 44 âm IPA, phát âm chuẩn từ đầu, làm quen với ngữ điệu cơ bản</p>
+                            </div>
+                        </div>
+                        <div class="fade-in flex gap-6 items-start relative">
+                            <div class="w-16 h-16 bg-primary/80 rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-lg shadow-primary/10">
+                                <span class="font-heading font-extrabold text-lg">W2</span>
+                            </div>
+                            <div class="bg-card/60 border border-white/5 rounded-2xl p-5 flex-1 card-hover sm:ml-0 -ml-2">
+                                <h3 class="font-heading font-bold text-lg mb-1">Tuần 2: Câu giao tiếp cơ bản</h3>
+                                <p class="text-muted text-sm">Học các mẫu câu giao tiếp thông dụng nhất trong đời sống hàng ngày</p>
+                            </div>
+                        </div>
+                        <div class="fade-in flex gap-6 items-start relative">
+                            <div class="w-16 h-16 bg-primary/70 rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-lg shadow-primary/10">
+                                <span class="font-heading font-extrabold text-lg">W3</span>
+                            </div>
+                            <div class="bg-card/60 border border-white/5 rounded-2xl p-5 flex-1 card-hover sm:ml-0 -ml-2">
+                                <h3 class="font-heading font-bold text-lg mb-1">Tuần 3: Phản xạ nhanh</h3>
+                                <p class="text-muted text-sm">Kỹ thuật luyện phản xạ, suy nghĩ bằng tiếng Anh thay vì dịch từ tiếng Việt</p>
+                            </div>
+                        </div>
+                        <div class="fade-in flex gap-6 items-start relative">
+                            <div class="w-16 h-16 bg-primary/60 rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-lg shadow-primary/10">
+                                <span class="font-heading font-extrabold text-lg">W4</span>
+                            </div>
+                            <div class="bg-card/60 border border-white/5 rounded-2xl p-5 flex-1 card-hover sm:ml-0 -ml-2">
+                                <h3 class="font-heading font-bold text-lg mb-1">Tuần 4: Hội thoại thực tế</h3>
+                                <p class="text-muted text-sm">Thực hành hội thoại trong các tình huống: chào hỏi, mua sắm, đi phỏng vấn</p>
+                            </div>
+                        </div>
+                        <div class="fade-in flex gap-6 items-start relative">
+                            <div class="w-16 h-16 bg-primary/50 rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-lg shadow-primary/5">
+                                <span class="font-heading font-extrabold text-lg">W5</span>
+                            </div>
+                            <div class="bg-card/60 border border-white/5 rounded-2xl p-5 flex-1 card-hover sm:ml-0 -ml-2">
+                                <h3 class="font-heading font-bold text-lg mb-1">Tuần 5: Nghe hiểu</h3>
+                                <p class="text-muted text-sm">Cải thiện kỹ năng nghe qua video, podcast và các bài hội thoại thực tế</p>
+                            </div>
+                        </div>
+                        <div class="fade-in flex gap-6 items-start relative">
+                            <div class="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-lg shadow-primary/5">
+                                <span class="font-heading font-extrabold text-lg">W6</span>
+                            </div>
+                            <div class="bg-card/60 border border-white/5 rounded-2xl p-5 flex-1 card-hover sm:ml-0 -ml-2">
+                                <h3 class="font-heading font-bold text-lg mb-1">Tuần 6: Giao tiếp công việc</h3>
+                                <p class="text-muted text-sm">Email, meeting, thuyết trình và giao tiếp chuyên nghiệp trong môi trường quốc tế</p>
+                            </div>
+                        </div>
+                        <div class="fade-in flex gap-6 items-start relative">
+                            <div class="w-16 h-16 bg-primary/30 rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-lg shadow-primary/5">
+                                <span class="font-heading font-extrabold text-lg">W7</span>
+                            </div>
+                            <div class="bg-card/60 border border-white/5 rounded-2xl p-5 flex-1 card-hover sm:ml-0 -ml-2">
+                                <h3 class="font-heading font-bold text-lg mb-1">Tuần 7: Tình huống thực tế</h3>
+                                <p class="text-muted text-sm">Role-play các tình huống thực tế: du lịch, ẩm thực, giải trí, giao lưu</p>
+                            </div>
+                        </div>
+                        <div class="fade-in flex gap-6 items-start relative">
+                            <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0 z-10 shadow-lg shadow-primary/20 pulse-glow">
+                                <i data-lucide="trophy" class="w-7 h-7"></i>
+                            </div>
+                            <div class="bg-primary/10 border border-primary/30 rounded-2xl p-5 flex-1 card-hover sm:ml-0 -ml-2">
+                                <h3 class="font-heading font-bold text-lg mb-1 text-primary">Tuần 8: Tổng ôn & thực hành</h3>
+                                <p class="text-muted text-sm">Ôn tập toàn bộ, thực hành tổng hợp và đánh giá kết quả sau khóa học</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 7. SOCIAL PROOF ========== -->
+    <section class="py-16 md:py-24" id="hoc-vien">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 fade-in">
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl mb-4">Học viên nói gì?</h2>
+                <p class="text-muted max-w-xl mx-auto">Những phản hồi chân thực từ học viên đã hoàn thành khóa học</p>
+            </div>
+            <div class="max-w-2xl mx-auto mb-14 fade-in">
+                <div class="bg-gradient-to-br from-primary/15 to-yellow-500/5 border border-primary/20 rounded-3xl p-8 md:p-10 relative">
+                    <div class="absolute top-6 left-8 text-7xl text-primary/20 font-serif leading-none">"</div>
+                    <blockquote class="text-xl md:text-2xl font-heading font-bold leading-relaxed mb-8 relative z-10">
+                        Mình đã có thể nói chuyện với khách nước ngoài chỉ sau 2 tháng học. Trước đây mình không dám mở miệng, giờ thì tự tin vô cùng!
+                    </blockquote>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="font-heading font-bold text-primary text-lg">NT</span>
+                        </div>
+                        <div>
+                            <div class="font-heading font-bold">Nguyễn Thảo</div>
+                            <div class="text-muted text-sm">Học viên khóa 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-6 flex items-start gap-4 card-hover">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="users" class="w-6 h-6 text-green-400"></i>
+                    </div>
+                    <div>
+                        <div class="font-heading font-extrabold text-2xl text-primary mb-1">1000+</div>
+                        <div class="font-heading font-bold mb-1">Học viên</div>
+                        <p class="text-muted text-sm">Đã tham gia và hoàn thành khóa học</p>
+                    </div>
+                </div>
+                <div class="fade-in bg-card/50 border border-white/5 rounded-2xl p-6 flex items-start gap-4 card-hover">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="trending-up" class="w-6 h-6 text-blue-400"></i>
+                    </div>
+                    <div>
+                        <div class="font-heading font-extrabold text-2xl text-primary mb-1">95%</div>
+                        <div class="font-heading font-bold mb-1">Cải thiện giao tiếp</div>
+                        <p class="text-muted text-sm">Học viên tự đánh giá cải thiện rõ rệt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 8. CTA SECTION ========== -->
+    <section class="py-16 md:py-24 bg-card/30" id="dang-ky">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl mb-4">Bắt đầu ngay hôm nay</h2>
+                    <p class="text-muted text-lg mb-8 leading-relaxed">
+                        Đăng ký ngay để nhận ưu đãi học phí và tư vấn lộ trình phù hợp với bạn
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                            </div>
+                            <span class="text-muted">Tư vấn lộ trình học cá nhân hóa</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                            </div>
+                            <span class="text-muted">Hỗ trợ 1-1 từ giảng viên</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                            </div>
+                            <span class="text-muted">Cam kết hoàn tiền nếu không hài lòng</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-primary/10 border border-primary/20 rounded-xl px-5 py-4 inline-flex">
+                        <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+                        <span class="text-muted text-sm">Hotline:</span>
+                        <a href="tel:0123456789" class="font-heading font-bold text-primary text-lg">0123 456 789</a>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-card border border-white/10 rounded-3xl p-8 shadow-2xl">
+                        <h3 class="font-heading font-bold text-xl mb-6 text-center">Đăng ký tư vấn miễn phí</h3>
+                        <form id="registerForm" class="space-y-5">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Họ tên</label>
+                                <input type="text" placeholder="Nhập họ tên của bạn" required
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm transition-all placeholder:text-muted">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" placeholder="Nhập email của bạn" required
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm transition-all placeholder:text-muted">
+                            </div>
+                            <button type="submit"
+                                class="btn-primary w-full py-4 rounded-xl font-heading font-bold text-base flex items-center justify-center gap-2 pulse-glow">
+                                Đăng Ký Ngay
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                            <p class="text-muted text-xs text-center">Đăng ký ngay, không cần thẻ tín dụng</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 9. FAQ ========== -->
+    <section class="py-16 md:py-24" id="faq">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 fade-in">
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl mb-4">Câu hỏi thường gặp</h2>
+                <p class="text-muted max-w-xl mx-auto">Giải đáp những thắc mắc phổ biến nhất về khóa học</p>
+            </div>
+            <div class="space-y-4 fade-in">
+                <div class="bg-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-heading font-bold text-base pr-4">Tôi mất gốc tiếng Anh có học được không?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-muted flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-6 pb-6 text-muted text-sm leading-relaxed">
+                            Hoàn toàn được! Khóa học được thiết kế từ nền tảng cơ bản nhất, phù hợp với người mất gốc. Giảng viên sẽ đồng hành từng bước, đảm bảo bạn theo kịp lộ trình.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-heading font-bold text-base pr-4">Bao lâu thì giao tiếp được tiếng Anh?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-muted flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-6 pb-6 text-muted text-sm leading-relaxed">
+                            Sau 8 tuần học, bạn sẽ có thể giao tiếp cơ bản trong các tình huống thông dụng. Kiên trì luyện tập, chỉ 2-3 tháng là bạn có thể tự tin trò chuyện với người nước ngoài.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-heading font-bold text-base pr-4">Khóa học có hỗ trợ gì không?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-muted flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-6 pb-6 text-muted text-sm leading-relaxed">
+                            Bạn sẽ được hỗ trợ 1-1 từ giảng viên, tham gia group học tập riêng, nhận phản hồi bài tập và tư vấn lộ trình cá nhân hóa trong suốt khóa học.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-heading font-bold text-base pr-4">Học online hay offline?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-muted flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-6 pb-6 text-muted text-sm leading-relaxed">
+                            Khóa học kết hợp cả hai: buổi học chính online qua Zoom/Google Meet với giảng viên, kèm theo tài liệu và bài tập offline để bạn tự luyện tập mọi lúc.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-heading font-bold text-base pr-4">Khóa học có tài liệu không?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-muted flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-6 pb-6 text-muted text-sm leading-relaxed">
+                            Có! Bạn sẽ nhận đầy đủ tài liệu học tập: giáo trình, bài tập, audio/video luyện nghe, và ghi chú tóm tắt mỗi buổi học. Tất cả được cập nhật trên nền tảng học tập riêng.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-heading font-bold text-base pr-4">Có chính sách hoàn tiền không?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-muted flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="px-6 pb-6 text-muted text-sm leading-relaxed">
+                            Cam kết hoàn 100% học phí nếu bạn không hài lòng trong vòng 14 ngày đầu tiên. Chúng tôi tự tin về chất lượng khóa học và muốn bạn yên tâm khi đăng ký.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 10. FOOTER ========== -->
+    <footer class="py-16 bg-card/50 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i data-lucide="languages" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-heading font-extrabold text-lg">ENGLISH MASTER</span>
+                    </div>
+                    <p class="text-muted text-sm leading-relaxed mb-4">
+                        Trung tâm đào tạo tiếng Anh giao tiếp thực chiến hàng đầu Việt Nam. Giúp hàng nghìn người tự tin giao tiếp tiếng Anh.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-all">
+                            <i data-lucide="facebook" class="w-5 h-5 text-muted"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-all">
+                            <i data-lucide="youtube" class="w-5 h-5 text-muted"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5 text-muted"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-all">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-muted"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold mb-4">Liên kết nhanh</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#chuong-trinh" class="text-muted hover:text-white transition-colors text-sm">Lộ Trình Học</a></li>
+                        <li><a href="#danh-cho-ai" class="text-muted hover:text-white transition-colors text-sm">Giới Thiệu Khóa Học</a></li>
+                        <li><a href="#hoc-vien" class="text-muted hover:text-white transition-colors text-sm">Đánh Giá Học Viên</a></li>
+                        <li><a href="#faq" class="text-muted hover:text-white transition-colors text-sm">Câu Hỏi Thường Gặp</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold mb-4">Nhận tips học tiếng Anh miễn phí</h4>
+                    <p class="text-muted text-sm mb-4">Đăng ký nhận bản tin để cập nhật khóa học mới và tips học tiếng Anh mỗi tuần</p>
+                    <form id="newsletterForm" class="flex gap-2">
+                        <input type="email" placeholder="Email của bạn" required
+                            class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm transition-all placeholder:text-muted">
+                        <button type="submit" class="btn-primary px-5 py-3 rounded-xl flex-shrink-0">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                    <div class="flex items-center gap-3 mt-4">
+                        <i data-lucide="phone" class="w-4 h-4 text-primary"></i>
+                        <a href="tel:0123456789" class="text-muted hover:text-white transition-colors text-sm">0123 456 789</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-muted text-sm">&copy; 2025 English Master. Tất cả quyền được bảo lưu.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-muted hover:text-white transition-colors text-sm">Chính sách bảo mật</a>
+                    <a href="#" class="text-muted hover:text-white transition-colors text-sm">Điều khoản sử dụng</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // FAQ toggle
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isOpen = answer.classList.contains('open');
+
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+
+            if (!isOpen) {
+                answer.classList.add('open');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Form submissions
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Đăng ký thành công!';
+            btn.disabled = true;
+            lucide.createIcons();
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                this.reset();
+                lucide.createIcons();
+            }, 3000);
+        });
+
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = this.querySelector('input');
+            const btn = this.querySelector('button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i>';
+            lucide.createIcons();
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                input.value = '';
+                lucide.createIcons();
+            }, 3000);
+        });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
